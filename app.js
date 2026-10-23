@@ -133,7 +133,7 @@
     }
     var r = session.submit(answerText).result;
     if (r === "empty") { setFeedback("bad", "Typ eerst je antwoord."); }
-    else if (r === "incorrect") { setFeedback("bad", "Niet helemaal. Probeer het nog eens!"); answerText = ""; renderAnswer(); }
+    else if (r === "incorrect") { setFeedback("bad", "Probeer het nog eens!"); answerText = ""; renderAnswer(); }
     else if (r === "correct") {
       $("bar-fill").style.width = (session.completed / session.total * 100) + "%";
       if (session.finished) {
