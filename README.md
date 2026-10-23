@@ -4,7 +4,7 @@ The on-screen text is in Dutch (Flemish, `nl-BE`). All visible strings are in `i
 
 A small, static web app for practising addition and subtraction with numbers 0 to 10. Built for iPads, hosted on GitHub Pages.
 
-## What it does
+## What it does -
 - Shows one question at a time with a touch keypad (no iPad keyboard needed; a physical keyboard also works).
 - Wrong answers show "Niet helemaal. Probeer het nog eens!", keep the same question and do **not** count. Correct answers show "Juist!" and a **Volgende** (next) button.
 - A session is exactly 20 correct answers, then a brief "Goed gedaan!" message and an automatic return to the home screen.
