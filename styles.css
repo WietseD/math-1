@@ -54,7 +54,7 @@ h1:focus { outline: none; }
   background: var(--paper); border: 2px solid var(--ink); border-radius: 1rem; box-shadow: 0 .25rem 0 var(--ink); }
 .key:active:not(:disabled) { transform: translateY(.2rem); box-shadow: 0 .05rem 0 var(--ink); }
 .key:disabled { opacity: .4; cursor: default; }
-.key-submit { background: var(--blue); color: #fff; border-color: var(--blue-edge); box-shadow: 0 .25rem 0 var(--blue-edge); font-size: clamp(1.2rem, 3.4vh, 1.8rem); }
+.key-submit { background: var(--blue); color: #fff; border-color: var(--blue-edge); box-shadow: 0 .25rem 0 var(--blue-edge); font-size: clamp(1rem, 2.8vh, 1.4rem); }
 .key-submit:active { box-shadow: 0 .05rem 0 var(--blue-edge); }
 .pin-display { min-height: 3rem; font-size: 2.5rem; letter-spacing: .2em; }
 #screen-lock .keypad { width: min(100%, 22rem); }

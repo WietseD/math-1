@@ -1,40 +1,40 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="nl-BE">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#14233c">
-  <title>Maths Practice</title>
+  <title>Rekenen oefenen</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main id="app">
 
     <section id="screen-lock" class="screen" hidden aria-labelledby="lock-title">
-      <h1 id="lock-title" tabindex="-1">Enter PIN</h1>
-      <output id="pin-display" class="pin-display" aria-label="PIN entered" aria-live="off"></output>
+      <h1 id="lock-title" tabindex="-1">Voer de pincode in</h1>
+      <output id="pin-display" class="pin-display" aria-label="Ingevoerde pincode" aria-live="off"></output>
       <p id="lock-msg" class="msg" role="status"></p>
       <div id="lock-keypad" class="keypad"></div>
     </section>
 
     <section id="screen-home" class="screen" hidden aria-labelledby="home-title">
-      <h1 id="home-title" tabindex="-1">Maths Practice</h1>
-      <p class="lead">Practise adding and taking away. Answer 20 questions to finish.</p>
+      <h1 id="home-title" tabindex="-1">Rekenen oefenen</h1>
+      <p class="lead">Oefen met optellen en aftrekken. Beantwoord 20 vragen om klaar te zijn.</p>
       <button id="start" class="btn btn-start" type="button">Start</button>
       <button id="relock" class="btn-lock" type="button" hidden>
-        <span aria-hidden="true">&#128274;</span> Lock
+        <span aria-hidden="true">&#128274;</span> Vergrendel
       </button>
     </section>
 
     <section id="screen-play" class="screen play" hidden aria-labelledby="progress-label">
       <header class="progress">
-        <p id="progress-label">Question 1 of 20</p>
+        <p id="progress-label">Vraag 1 van 20</p>
         <div class="bar" aria-hidden="true"><div id="bar-fill"></div></div>
       </header>
       <div class="qa">
         <p id="question" class="question">
           <span id="q-a"></span> <span id="q-op"></span> <span id="q-b"></span> =
-          <output id="answer" class="answer" aria-label="Your answer" aria-live="polite"></output>
+          <output id="answer" class="answer" aria-label="Jouw antwoord" aria-live="polite"></output>
         </p>
         <p id="feedback" class="feedback" role="status"></p>
       </div>
@@ -43,14 +43,14 @@
     </section>
 
     <section id="screen-done" class="screen" hidden aria-labelledby="done-title">
-      <h1 id="done-title" tabindex="-1">Well done!</h1>
-      <p class="lead">You finished all 20 questions!</p>
+      <h1 id="done-title" tabindex="-1">Goed gedaan!</h1>
+      <p class="lead">Je hebt alle 20 vragen afgerond!</p>
     </section>
 
   </main>
   <script src="config.js"></script>
   <script src="logic.js"></script>
   <script src="app.js"></script>
-  <noscript><p style="padding:1rem">This app needs JavaScript to run.</p></noscript>
+  <noscript><p style="padding:1rem">Deze app heeft JavaScript nodig.</p></noscript>
 </body>
 </html>

@@ -29,7 +29,7 @@
       var b = document.createElement("button");
       b.type = "button";
       b.dataset.key = k;
-      if (k === "back") { b.className = "key key-back"; b.innerHTML = "<span aria-hidden=\"true\">\u232B</span>"; b.setAttribute("aria-label", "Delete"); }
+      if (k === "back") { b.className = "key key-back"; b.innerHTML = "<span aria-hidden=\"true\">\u232B</span>"; b.setAttribute("aria-label", "Wis"); }
       else if (k === "submit") { b.className = "key key-submit"; b.textContent = submitLabel; }
       else { b.className = "key"; b.textContent = k; }
       container.appendChild(b);
@@ -66,14 +66,14 @@
       if (!window.crypto || !crypto.subtle) throw new Error("no-crypto");
       var ok = (await sha256(pinText)) === cfg.pinSha256;
       if (ok) { pinText = ""; renderPin(); $("lock-msg").textContent = ""; show("home"); }
-      else { pinText = ""; renderPin(); $("lock-msg").textContent = "That PIN isn\u2019t right. Try again."; }
+      else { pinText = ""; renderPin(); $("lock-msg").textContent = "Die pincode klopt niet. Probeer het opnieuw."; }
     } catch (err) {
-      $("lock-msg").textContent = "The lock needs a secure page (https). Ask a grown-up.";
+      $("lock-msg").textContent = "De vergrendeling werkt alleen op een beveiligde pagina (https). Vraag het aan een volwassene.";
     }
     checkingPin = false;
   }
 
-  buildKeypad($("lock-keypad"), "Unlock", {
+  buildKeypad($("lock-keypad"), "Open", {
     digit: function (d) { if (pinText.length < 8) { pinText += d; renderPin(); $("lock-msg").textContent = ""; } },
     back: function () { pinText = pinText.slice(0, -1); renderPin(); },
     submit: trySubmitPin
@@ -105,10 +105,10 @@
     $("q-a").textContent = q.a;
     $("q-op").textContent = q.op;
     $("q-b").textContent = q.b;
-    $("progress-label").textContent = "Question " + (session.completed + 1) + " of " + session.total;
+    $("progress-label").textContent = "Vraag " + (session.completed + 1) + " van " + session.total;
     $("bar-fill").style.width = (session.completed / session.total * 100) + "%";
-    $("sr-question").textContent = "Question " + (session.completed + 1) + " of " + session.total + ": " +
-      q.a + (q.op === "+" ? " plus " : " minus ") + q.b + ".";
+    $("sr-question").textContent = "Vraag " + (session.completed + 1) + " van " + session.total + ": " +
+      q.a + (q.op === "+" ? " plus " : " min ") + q.b + ".";
   }
 
   function startSession() {
@@ -116,7 +116,7 @@
     answerText = "";
     setFeedback(null, "");
     setKeysDisabled(playKeypad, false);
-    setSubmitLabel("Check");
+    setSubmitLabel("Klaar");
     renderAnswer();
     renderQuestion();
     show("play");
@@ -127,27 +127,27 @@
     if (session.awaitingNext) { // "Next" step
       if (session.advance()) {
         answerText = ""; renderAnswer(); setFeedback(null, ""); setKeysDisabled(playKeypad, false);
-        setSubmitLabel("Check"); renderQuestion();
+        setSubmitLabel("Klaar"); renderQuestion();
       }
       return;
     }
     var r = session.submit(answerText).result;
-    if (r === "empty") { setFeedback("bad", "Type your answer first."); }
-    else if (r === "incorrect") { setFeedback("bad", "Not quite. Try again!"); answerText = ""; renderAnswer(); }
+    if (r === "empty") { setFeedback("bad", "Typ eerst je antwoord."); }
+    else if (r === "incorrect") { setFeedback("bad", "Niet helemaal. Probeer het nog eens!"); answerText = ""; renderAnswer(); }
     else if (r === "correct") {
       $("bar-fill").style.width = (session.completed / session.total * 100) + "%";
       if (session.finished) {
         show("done");
         finishTimer = setTimeout(function () { session = null; show("home"); }, cfg.finishDelayMs);
       } else {
-        setFeedback("good", "Correct!");
+        setFeedback("good", "Juist!");
         setKeysDisabled(playKeypad, true);
-        setSubmitLabel("Next");
+        setSubmitLabel("Volgende");
       }
     }
   }
 
-  buildKeypad(playKeypad, "Check", {
+  buildKeypad(playKeypad, "Klaar", {
     digit: function (d) {
       if (!session || session.awaitingNext) return;
       answerText = L.appendDigit(answerText, d); renderAnswer();
