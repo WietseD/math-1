@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14233c">
+  <title>Maths Practice</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app">
+
+    <section id="screen-lock" class="screen" hidden aria-labelledby="lock-title">
+      <h1 id="lock-title" tabindex="-1">Enter PIN</h1>
+      <output id="pin-display" class="pin-display" aria-label="PIN entered" aria-live="off"></output>
+      <p id="lock-msg" class="msg" role="status"></p>
+      <div id="lock-keypad" class="keypad"></div>
+    </section>
+
+    <section id="screen-home" class="screen" hidden aria-labelledby="home-title">
+      <h1 id="home-title" tabindex="-1">Maths Practice</h1>
+      <p class="lead">Practise adding and taking away. Answer 20 questions to finish.</p>
+      <button id="start" class="btn btn-start" type="button">Start</button>
+      <button id="relock" class="btn-lock" type="button" hidden>
+        <span aria-hidden="true">&#128274;</span> Lock
+      </button>
+    </section>
+
+    <section id="screen-play" class="screen play" hidden aria-labelledby="progress-label">
+      <header class="progress">
+        <p id="progress-label">Question 1 of 20</p>
+        <div class="bar" aria-hidden="true"><div id="bar-fill"></div></div>
+      </header>
+      <div class="qa">
+        <p id="question" class="question">
+          <span id="q-a"></span> <span id="q-op"></span> <span id="q-b"></span> =
+          <output id="answer" class="answer" aria-label="Your answer" aria-live="polite"></output>
+        </p>
+        <p id="feedback" class="feedback" role="status"></p>
+      </div>
+      <div id="play-keypad" class="keypad"></div>
+      <p id="sr-question" class="sr-only" role="status"></p>
+    </section>
+
+    <section id="screen-done" class="screen" hidden aria-labelledby="done-title">
+      <h1 id="done-title" tabindex="-1">Well done!</h1>
+      <p class="lead">You finished all 20 questions!</p>
+    </section>
+
+  </main>
+  <script src="config.js"></script>
+  <script src="logic.js"></script>
+  <script src="app.js"></script>
+  <noscript><p style="padding:1rem">This app needs JavaScript to run.</p></noscript>
+</body>
+</html>
